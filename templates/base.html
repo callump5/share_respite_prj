@@ -25,11 +25,76 @@
 
         <!-- Nav Body -->
             <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+
+                    <!-- Account Management -->
+                    {% if  user.is_authenticated %}
+
+                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            {{ user.username }}
+                            <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+
+                                <li><a href="/">Profile</a></li>
+                                {% if user.is_staff %}
+                                    <li><a href="/admin/">Admin</a></li>
+                                {% endif %}
+
+                                <li><a href="/logout/">Logout</a></li>
+                            </ul>
+                        </li>
+
+                        {% if user.is_authenticated %}
+                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                Create New
+                                <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+
+                                    <li><a href="/testimonials/new/">Testimonial</a></li>
+                                    <li><a href="">Forum Post</a></li>
+                                    {% if user.is_staff %}
+                                        <li><a href="/">Info Sheet</a></li>
+                                    {% endif %}
+                                </ul>
+                            </li>
+                        {% endif %}
+
+                        {% else %}
+
+                            <li><a href="{% url 'login' %}">
+                                <span class="glyphicon glyphicon-user"></span>
+                                Login</a></li>
+                            <li><a href="{% url 'register' %}">
+                                 <span class="glyphicon glyphicon-envelope"></span>
+                                Register</a></li>
+                    {% endif %}
+                    <!-- Account Management -->
+                </ul>
+
+
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="">Home</a></li>
-                    <li><a href="">What's On?</a></li>
-                    <li><a href="/">Gallery</a></li>
-                    <li><a href="">Testimonials</a></li>
+                    <li><a href="/">Home</a></li>
+
+                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            Portal
+                            <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="">Forum</a></li>
+                                <li><a href="">Info Sheets</a></li>
+                            </ul>
+                    </li>
+
+                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            About Us
+                            <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="">Whats On</a></li>
+                                <li><a href="">Staff</a></li>
+                                <li><a href="">Gallery</a></li>
+                                <li><a href="/testimonials/">Testimonials</a></li>
+                            </ul>
+                    </li>
+
                     <li><a href="/">Contact Us</a></li>
                 </ul>
             </div>
