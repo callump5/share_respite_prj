@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
+from django.core.urlresolvers import reverse
 
 from django.contrib.auth.decorators import login_required
 
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import TestimonialPost
 from .forms import TestimonialPostForm
 from django.utils import timezone
@@ -11,7 +12,8 @@ from django.utils import timezone
 # Create your views here.
 
 def testimonial_list(request):
-    posts = TestimonialPost.objects.all()
+    posts = TestimonialPost.objects.filter(published_date__lte=timezone.now()
+		).order_by('-published_date')
     return render(request, 'testimonials/testimonial_list.html', {'posts': posts})
 
 @login_required(login_url='/login/')
@@ -27,3 +29,36 @@ def new_testimonial(request):
     else:
         form = TestimonialPostForm()
     return render(request, 'testimonials/testimonial_form.html', {'form': form})
+
+@login_required(login_url='/login/')
+def delete_testimonial(request, post_id):
+    post = get_object_or_404(TestimonialPost, pk=post_id)
+    post.delete()
+    return redirect(reverse('profile'))
+
+@login_required(login_url='/login/')
+def edit_testimonial(request, post_id):
+    post = get_object_or_404(TestimonialPost, pk=post_id)
+
+    if request.method == "POST":
+        form = TestimonialPostForm(request.POST, instance=post)
+        if form.is_valid():
+            form.save()
+
+            return redirect(reverse('profile'))
+    else:
+        form = TestimonialPostForm(instance=post)
+
+    args = {
+       'form': form,
+       'form_action': reverse('edit_testimonial',  kwargs={"post_id": post.id}),
+       'button_text': 'Update Testimonial'
+    }
+
+    args.update(request)
+
+    return render(request, 'testimonials/testimonial_form.html', args)
+
+
+
+

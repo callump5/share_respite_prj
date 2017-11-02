@@ -38,8 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'home',
+    'accounts',
     'testimonials',
+    'aboutus',
     'django_forms_bootstrap',
+    'font_awesome',
 ]
 
 MIDDLEWARE = [
@@ -129,4 +132,8 @@ STATICFILES_DIRS = (
 
 # Change login redirect
 
-LOGIN_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = 'profile'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+

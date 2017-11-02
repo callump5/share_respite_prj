@@ -1,9 +1,13 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
+from django.contrib.auth.decorators import login_required
 
-from django.shortcuts import render, redirect
+
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import UserRegistrationForm
 from django.contrib.auth import login, authenticate
+
+from testimonials.models import TestimonialPost
 
 # Create your views here.
 def signup(request):
@@ -21,3 +25,8 @@ def signup(request):
     return render(request, 'registration/signup.html', {'form': form})
 
 
+@login_required(login_url='/login/')
+def profile(request):
+    testimonialposts = TestimonialPost.objects.all()
+
+    return render(request, 'registration/profile.html', {'testimonialposts': testimonialposts})

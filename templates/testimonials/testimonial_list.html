@@ -15,12 +15,10 @@
                         <p>{{ post.published_date }}</p>
                     </div>
 
-                    <button type="button" class="myButton" data-toggle="collapse" data-target="#{{ post.id }}">
+                    <button type="button" class="moreButton" data-toggle="collapse" data-target="#{{ post.id }}">
                         More<span class="caret"></span>
                     </button>
                 </div>
-
-
                 <div id="{{ post.id }}" class="collapse">
                     <p>{{ post.content }}</p>
                 </div>
