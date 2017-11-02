@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Welcome {{ user.first_name }}</h1>
+
+<!-- Testimonials -->
+    <div class="col-md-12">
+    <h2>My Testimonials</h2>
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th>Title</th>
+                    <th>Created At</th>
+                    <th></th>
+                </tr>
+
+
+                {% for posts in testimonialposts %}
+                    <tr>
+                        {% if posts.author_key_id == user.id  %}
+
+                            <td>{{ posts.title }}</td>
+
+                            <td>
+                                <time datetime="{{ posts.published_date }}">
+                                {{ posts.published_date }}</time>
+                            </td>
+                            <td style="text-align: right">
+                                <a href="{% url 'edit_testimonial' posts.id %}"><i class="fa fa-edit" style="font-size:22px"></i></a>
+                                <a href="{% url 'delete_testimonial' posts.id %}"><i class="fa fa-trash-o" style="font-size:22px"></i></a>
+                            </td>
+                        {% endif %}
+                    </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+<!-- /Testimonials -->
+
+{% endblock %}
+
