@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 
 from django.shortcuts import render, redirect, get_object_or_404
@@ -8,6 +9,7 @@ from .forms import UserRegistrationForm
 from django.contrib.auth import login, authenticate
 
 from testimonials.models import TestimonialPost
+from forum.models import Thread, Comment
 
 # Create your views here.
 def signup(request):
@@ -19,7 +21,8 @@ def signup(request):
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
             login(request, user)
-            return redirect('home')
+            messages.success(request, 'You successfully created an account!')
+            return redirect('profile')
     else:
         form = UserRegistrationForm()
     return render(request, 'registration/signup.html', {'form': form})
@@ -28,5 +31,7 @@ def signup(request):
 @login_required(login_url='/login/')
 def profile(request):
     testimonialposts = TestimonialPost.objects.all()
+    threadposts = Thread.objects.all()
 
-    return render(request, 'registration/profile.html', {'testimonialposts': testimonialposts})
+    return render(request, 'registration/profile.html', {'testimonialposts': testimonialposts,
+                                                         'threadposts': threadposts})

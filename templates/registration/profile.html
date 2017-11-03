@@ -1,6 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1>Welcome {{ user.first_name }}</h1>
+    <h1>Welcome {{ user.get_full_name }}</h1>
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert {{ message.tags }} alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>{{ message }}
+            </div>
+{% endfor %}
+    {% endif %}
 
 <!-- Testimonials -->
     <div class="col-md-12">
@@ -16,7 +26,7 @@
 
                 {% for posts in testimonialposts %}
                     <tr>
-                        {% if posts.author_key_id == user.id  %}
+                        {% if posts.user_id == user.id  %}
 
                             <td>{{ posts.title }}</td>
 
@@ -36,6 +46,41 @@
         </table>
     </div>
 <!-- /Testimonials -->
+
+<!-- Threads -->
+    <div class="col-md-12">
+    <h2>My Threads</h2>
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th>Title</th>
+                    <th>Created At</th>
+                    <th></th>
+                </tr>
+
+
+                {% for posts in threadposts %}
+                    <tr>
+                        {% if posts.user_id == user.id  %}
+
+                            <td>{{ posts.thread }}</td>
+
+                            <td>
+                                <time datetime="{{ posts.published_date }}">
+                                {{ posts.published_date }}</time>
+                            </td>
+                            <td style="text-align: right">
+                                <a href="{% url 'edit_thread' posts.subject_id posts.id %}"><i class="fa fa-edit" style="font-size:22px"></i></a>
+                                <a href="{% url 'delete_thread' posts.subject_id posts.id %}"><i class="fa fa-trash-o" style="font-size:22px"></i></a>
+                            </td>
+                        {% endif %}
+                    </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+<!-- /Threads -->
 
 {% endblock %}
 

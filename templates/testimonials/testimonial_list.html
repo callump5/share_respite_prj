@@ -3,18 +3,17 @@
 
     <h1>What People Are Saying About Us</h1>
 
-    <div class="container">
 
         {% for post in posts %}
-            <hr>
-            <div class="testimonial_post">
+
+            <section class="testimonial_post">
+                <hr>
                 <div class="testimonial-header">
                     <div class="testimonial-title">
                         <h2>{{ post.title }}</h2>
                         <h3>{{ post.author }}</h3>
                         <p>{{ post.published_date }}</p>
                     </div>
-
                     <button type="button" class="moreButton" data-toggle="collapse" data-target="#{{ post.id }}">
                         More<span class="caret"></span>
                     </button>
@@ -22,9 +21,9 @@
                 <div id="{{ post.id }}" class="collapse">
                     <p>{{ post.content }}</p>
                 </div>
-            </div>
+            </section>
+
         {% endfor %}
-    </div>
 {% endblock %}
 
 from django.contrib.auth.models import User

@@ -7,7 +7,7 @@ from django.utils import timezone
 # Create your models here.
 
 class TestimonialPost(models.Model):
-    author_key = models.ForeignKey('auth.User')
+    user = models.ForeignKey('auth.User')
     author = models.CharField(max_length=200, default='Anonymous')
     title = models.CharField(max_length=200)
     content = models.TextField()

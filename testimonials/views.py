@@ -3,11 +3,16 @@ from __future__ import unicode_literals
 from django.core.urlresolvers import reverse
 
 from django.contrib.auth.decorators import login_required
+from django.template.context_processors import csrf
+from django.contrib import messages
 
 from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.models import User
+
 from .models import TestimonialPost
 from .forms import TestimonialPostForm
 from django.utils import timezone
+
 
 # Create your views here.
 
@@ -25,7 +30,8 @@ def new_testimonial(request):
             post.author_key = request.user
             post.published_date = timezone.now()
             post.save()
-            return redirect(testimonial_list)
+            messages.success(request, 'Successfully created a new testimonial')
+            return redirect('profile')
     else:
         form = TestimonialPostForm()
     return render(request, 'testimonials/testimonial_form.html', {'form': form})
@@ -33,32 +39,40 @@ def new_testimonial(request):
 @login_required(login_url='/login/')
 def delete_testimonial(request, post_id):
     post = get_object_or_404(TestimonialPost, pk=post_id)
-    post.delete()
-    return redirect(reverse('profile'))
+
+    if post.user_id == request.user.id:
+
+        post.delete()
+        return redirect(reverse('profile'))
+    else:
+        messages.error(request, "That post doesnt belong to you!")
+        return redirect('profile')
 
 @login_required(login_url='/login/')
 def edit_testimonial(request, post_id):
     post = get_object_or_404(TestimonialPost, pk=post_id)
 
-    if request.method == "POST":
-        form = TestimonialPostForm(request.POST, instance=post)
-        if form.is_valid():
-            form.save()
+    if post.user_id == request.user.id:
 
-            return redirect(reverse('profile'))
+        if request.method == "POST":
+            form = TestimonialPostForm(request.POST, instance=post)
+            if form.is_valid():
+                form.save()
+
+                return redirect(reverse('profile'))
+        else:
+            form = TestimonialPostForm(instance=post)
+
+        args = {
+           'form': form,
+        }
+
+        args.update(csrf(request))
+
+        return render(request, 'testimonials/testimonial_form.html', args)
     else:
-        form = TestimonialPostForm(instance=post)
-
-    args = {
-       'form': form,
-       'form_action': reverse('edit_testimonial',  kwargs={"post_id": post.id}),
-       'button_text': 'Update Testimonial'
-    }
-
-    args.update(request)
-
-    return render(request, 'testimonials/testimonial_form.html', args)
-
+        messages.error(request, "That post doesnt belong to you!")
+        return redirect('profile')
 
 
 

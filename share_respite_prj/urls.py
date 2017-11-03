@@ -36,7 +36,11 @@ urlpatterns = [
     url(r'^', include('testimonials.urls')),
 
     # About Us
-    url(r'^', include('aboutus.urls'))
+    url(r'^', include('aboutus.urls')),
+
+    # Forum
+
+    url(r'^', include('forum.urls'))
 
 
 ]

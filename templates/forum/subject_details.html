@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <div>
+        <h1>{{ subject }}</h1>
+        <p>{{ subject.description }}</p>
+    </div>
+
+    <a href="{% url 'new_thread' subject.id %}" class="myButton">New Thread</a>
+    <div>
+        {% for thread in subject.threads.all %}
+            <h2>{{ thread }}</h2>
+            <p>{{ thread.description }}</p>
+            <table>
+            <tr>
+                <th>Comments</th>
+                {% if thread.likes != 0 %}
+                    <th>Likes</th>
+                {% endif %}
+            </tr>
+            <tr>
+                <td>{{ thread.likes }}</td>
+                {% if thread.likes != 0 %}
+                    <td>{{ thread.likes }}</td>
+                {% endif %}
+            </tr>
+            </table>
+        {% endfor %}
+
+
+
+    </div>
+
+
+
+{% endblock content %}
