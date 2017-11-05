@@ -16,7 +16,7 @@ def forum(request):
 
 def subject_details(request, subject_id):
     subject = get_object_or_404(Subject, pk=subject_id)
-    return render(request, 'forum/subject_details.html', {'subject': subject})
+    return render(request, 'forum/subject_threads.html', {'subject': subject})
 
 
 @login_required(login_url='/login/')
@@ -84,3 +84,10 @@ def edit_thread(request, subject_id, thread_id):
     else:
         messages.error(request, "That post doesnt belong to you!")
         return redirect('profile')
+
+
+def view_thread(request, subject_id, thread_id):
+
+    thread = get_object_or_404(Thread, pk=thread_id)
+
+    return render(request, 'forum/thread_post.html', {'thread': thread})

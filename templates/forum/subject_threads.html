@@ -9,7 +9,7 @@
     <a href="{% url 'new_thread' subject.id %}" class="myButton">New Thread</a>
     <div>
         {% for thread in subject.threads.all %}
-            <h2>{{ thread }}</h2>
+            <h2><a href="{% url 'view_thread' subject.id thread.id %}">{{ thread }}</a></h2>
             <p>{{ thread.description }}</p>
             <table>
             <tr>

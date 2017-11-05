@@ -27,7 +27,7 @@ def new_testimonial(request):
         form = TestimonialPostForm(request.POST)
         if form.is_valid():
             post = form.save(commit=False)
-            post.author_key = request.user
+            post.user = request.user
             post.published_date = timezone.now()
             post.save()
             messages.success(request, 'Successfully created a new testimonial')

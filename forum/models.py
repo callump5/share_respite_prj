@@ -31,7 +31,7 @@ class Comment(models.Model):
     created_at = models.DateTimeField(default=timezone.now)
     likes = models.IntegerField(default=0)
     def __unicode__(self):
-        return self.user_id.get_full_name()
+        return self.user.get_full_name()
 
 
 
