@@ -2,16 +2,6 @@
 {% block content %}
     <h1>Welcome {{ user.get_full_name }}</h1>
 
-    {% if messages %}
-        {% for message in messages %}
-            <div class="alert {{ message.tags }} alert-dismissible" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>{{ message }}
-            </div>
-{% endfor %}
-    {% endif %}
-
 <!-- Testimonials -->
     <div class="col-md-12">
     <h2>My Testimonials</h2>
@@ -34,7 +24,8 @@
                                 <time datetime="{{ posts.published_date }}">
                                 {{ posts.published_date }}</time>
                             </td>
-                            <td style="text-align: right">
+                            <td class="table-right">
+                                <a href="{% url 'testimonials' %}"><i class="fa fa-eye" style="font-size:22px"></i></a>
                                 <a href="{% url 'edit_testimonial' posts.id %}"><i class="fa fa-edit" style="font-size:22px"></i></a>
                                 <a href="{% url 'delete_testimonial' posts.id %}"><i class="fa fa-trash-o" style="font-size:22px"></i></a>
                             </td>
@@ -55,6 +46,8 @@
                 <tr>
                     <th>Title</th>
                     <th>Created At</th>
+                    <th>Likes</th>
+                    <th>Comments</th>
                     <th></th>
                 </tr>
 
@@ -66,10 +59,13 @@
                             <td>{{ posts.thread }}</td>
 
                             <td>
-                                <time datetime="{{ posts.published_date }}">
-                                {{ posts.published_date }}</time>
+                                <time datetime="{{ posts.created_at }}">
+                                {{ posts.created_at }}</time>
                             </td>
-                            <td style="text-align: right">
+                            <td>{{ posts.likes }}</td>
+                            <td>{{ posts.comments.count }}</td>
+                            <td class="table-right">
+                                <a href="{% url 'view_thread' posts.subject_id posts.id %}"><i class="fa fa-eye" style="font-size:22px"></i></a>
                                 <a href="{% url 'edit_thread' posts.subject_id posts.id %}"><i class="fa fa-edit" style="font-size:22px"></i></a>
                                 <a href="{% url 'delete_thread' posts.subject_id posts.id %}"><i class="fa fa-trash-o" style="font-size:22px"></i></a>
                             </td>

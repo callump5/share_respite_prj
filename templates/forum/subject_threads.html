@@ -7,23 +7,20 @@
     </div>
 
     <a href="{% url 'new_thread' subject.id %}" class="myButton">New Thread</a>
+
     <div>
         {% for thread in subject.threads.all %}
             <h2><a href="{% url 'view_thread' subject.id thread.id %}">{{ thread }}</a></h2>
             <p>{{ thread.description }}</p>
+
+
             <table>
-            <tr>
-                <th>Comments</th>
-                {% if thread.likes != 0 %}
-                    <th>Likes</th>
-                {% endif %}
-            </tr>
-            <tr>
-                <td>{{ thread.likes }}</td>
-                {% if thread.likes != 0 %}
-                    <td>{{ thread.likes }}</td>
-                {% endif %}
-            </tr>
+                <tr>
+                    <th>Comments</th>
+                </tr>
+                <tr>
+                    <td>{{ thread.comments.count }}</td>
+                </tr>
             </table>
         {% endfor %}
 

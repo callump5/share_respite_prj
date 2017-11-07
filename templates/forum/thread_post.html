@@ -4,6 +4,9 @@
     <h1>{{ thread }}</h1>
     <p>{{ thread.description }}</p>
 
+
+    <a  class="myButton" href="{% url 'new_comment' subject.id thread.id %}">Add a Comment</a>
+
     {% for comment in thread.comments.all  %}
         <h1>{{ comment }}</h1>
         <p>{{ comment.comment }}</p>

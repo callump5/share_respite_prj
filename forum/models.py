@@ -19,7 +19,6 @@ class Thread(models.Model):
     subject = models.ForeignKey(Subject, related_name='threads')
     description = models.TextField()
     created_at = models.DateTimeField(default=timezone.now)
-    likes = models.IntegerField(default=0)
     def __unicode__(self):
         return self.thread
 
@@ -29,9 +28,9 @@ class Comment(models.Model):
     user = models.ForeignKey('auth.User', related_name='comments')
     comment = models.TextField()
     created_at = models.DateTimeField(default=timezone.now)
-    likes = models.IntegerField(default=0)
     def __unicode__(self):
         return self.user.get_full_name()
+
 
 
 

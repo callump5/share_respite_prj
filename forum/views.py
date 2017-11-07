@@ -89,5 +89,41 @@ def edit_thread(request, subject_id, thread_id):
 def view_thread(request, subject_id, thread_id):
 
     thread = get_object_or_404(Thread, pk=thread_id)
+    subject = get_object_or_404(Subject, pk=subject_id)
 
-    return render(request, 'forum/thread_post.html', {'thread': thread})
+    return render(request, 'forum/thread_post.html', {'thread': thread, 'subject':subject})
+
+@login_required(login_url='/login/')
+def new_comment(request, subject_id, thread_id):
+    thread = get_object_or_404(Thread, pk=thread_id)
+
+    if request.method == "POST":
+        comment_form = CommentForm(request.POST)
+        if comment_form.is_valid():
+            comment = comment_form.save(False)
+            comment.thread = thread
+            comment.user = request.user
+            comment.save()
+
+            messages.success(request, 'You successfully created a comment!')
+
+            return redirect('view_thread', subject_id, thread_id)
+
+    else:
+        comment_form = CommentForm()
+
+    args = {
+        'form': comment_form,
+        'thread': thread
+    }
+
+    args.update(csrf(request))
+
+    return render(request, 'forum/forms/comment_form.html', args)
+
+
+
+
+
+
+

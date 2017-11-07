@@ -8,4 +8,5 @@ urlpatterns = [
     url(r'^subject/(?P<subject_id>\d+)/edit/thread/(?P<thread_id>\d+)/$', views.edit_thread, name='edit_thread'),
     url(r'^subject/(?P<subject_id>\d+)/delete/thread/(?P<thread_id>\d+)/$', views.delete_thread, name='delete_thread'),
     url(r'^subject/(?P<subject_id>\d+)/view/thread/(?P<thread_id>\d+)/$', views.view_thread, name='view_thread'),
+    url(r'^subject/(?P<subject_id>\d+)/thread/(?P<thread_id>\d+)/new/comment/$', views.new_comment, name='new_comment')
 ]
