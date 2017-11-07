@@ -9,6 +9,8 @@ from django.utils import timezone
 class Subject(models.Model):
     subject = models.CharField(max_length=200)
     description = models.TextField()
+    created_at = models.DateTimeField(default=timezone.now)
+
 
     def __unicode__(self):
         return self.subject

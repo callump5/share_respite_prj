@@ -2,6 +2,40 @@
 {% block content %}
     <h1>Welcome {{ user.get_full_name }}</h1>
 
+
+<!-- Forum -->
+    {% if user.is_staff %}
+        <div class="col-md-12">
+            <h2>Forum Subjects</h2>
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th>Title</th>
+                        <th>Created At</th>
+                        <th></th>
+                    </tr>
+
+
+                    {% for post in forum_subjects %}
+                        <tr>
+                            <td>{{ post }}</td>
+
+                            <td>
+                                <time datetime="{{ post.created_at }}"></time>
+                            </td>
+                            <td class="table-right">
+                                <a href="{% url 'subject' post.id %}"><i class="fa fa-eye" style="font-size:22px"></i></a>
+                                <a href="{% url 'edit_subject' post.id %}"><i class="fa fa-edit" style="font-size:22px"></i></a>
+                                <a href="{% url 'delete_subject' post.id %}"><i class="fa fa-trash-o" style="font-size:22px"></i></a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% endif %}
+<!-- /Testimonials -->
+
 <!-- Testimonials -->
     <div class="col-md-12">
     <h2>My Testimonials</h2>
@@ -46,7 +80,7 @@
                 <tr>
                     <th>Title</th>
                     <th>Created At</th>
-                    <th>Likes</th>
+                    <th></th>
                     <th>Comments</th>
                     <th></th>
                 </tr>

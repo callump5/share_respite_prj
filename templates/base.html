@@ -52,9 +52,8 @@
                                 <ul class="dropdown-menu">
 
                                     <li><a href="/testimonials/new/">Testimonial</a></li>
-                                    <li><a href="">Forum Post</a></li>
                                     {% if user.is_staff %}
-                                        <li><a href="/">Forum Subject</a></li>
+                                        <li><a href="{% url 'new_subject' %}">Forum Subject</a></li>
                                     {% endif %}
                                 </ul>
                             </li>
