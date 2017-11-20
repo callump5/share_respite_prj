@@ -21,6 +21,7 @@ class Thread(models.Model):
     subject = models.ForeignKey(Subject, related_name='threads')
     description = models.TextField()
     created_at = models.DateTimeField(default=timezone.now)
+    views = models.IntegerField(default=0)
     def __unicode__(self):
         return self.thread
 

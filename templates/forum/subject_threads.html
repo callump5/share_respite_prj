@@ -1,15 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
 
-
-
+    <div class="thread-header">
+        <h1>{{ subject }}</h1>
+    </div>
 
     <div class="thread-table-wrap">
-        <div class="thread-table-header">
-            <h2>{{ subject }}</h2>
-            <button href="{% url 'new_thread' subject.id %}" class="myButton">New Thread</button>
-        </div>
-
         <div class="forum-table">
             <table class="forum-table">
                 <thead class="table-head">
@@ -26,14 +22,19 @@
                         <tr>
                             <td><i class="fa fa-file" aria-hidden="true"></i></td>
                             <td><h2><a href="{% url 'view_thread' subject.id thread.id %}">{{ thread }}</a></h2></td>
-                            <td class="counters"></td>
+                            <td class="counters">{{ thread.views }}</td>
                             <td class="counters">{{ thread.comments.count }}</td>
                         </tr>
                     {% endfor %}
                 </tbody>
             </table>
         </div>
+
+        <button class="btn"><a href="{% url 'new_thread' subject.id %}" class="myButton">New Thread</a></button>
     </div>
+
+
+
 
 
 

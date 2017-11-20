@@ -149,6 +149,10 @@ def view_thread(request, subject_id, thread_id):
     thread = get_object_or_404(Thread, pk=thread_id)
     subject = get_object_or_404(Subject, pk=subject_id)
 
+    thread.save(False)
+    thread.views += 1
+    thread.save()
+
     return render(request, 'forum/thread_post.html', {'thread': thread, 'subject':subject})
 
 @login_required(login_url='/login/')

@@ -1,16 +1,25 @@
 {% extends 'base.html' %}
 {% block content %}
 
-    <h1>{{ thread }}</h1>
-    <p>{{ thread.description }}</p>
 
+    <div class="thread-header">
+        <h1>{{ subject }}</h1>
+    </div>
 
-    <a  class="myButton" href="{% url 'new_comment' subject.id thread.id %}">Add a Comment</a>
+    <div class="thread">
+        <h2>{{ thread }}</h2>
+        <p>{{ thread.description }}</p>
+    </div>
 
-    {% for comment in thread.comments.all  %}
-        <h1>{{ comment }}</h1>
-        <p>{{ comment.comment }}</p>
-
+    <h2 class="comment-header">Comments</h2>
+    {% for comment in thread.comments.all %}
+        <div class="comment">
+            <h3>{{ comment }}</h3>
+            <p>{{ comment.comment }}</p>
+        </div>
     {% endfor %}
+
+    <button class="btn"><a href="{% url 'new_comment' subject.id thread.id %}">Add a Comment</a></button>
+
 
 {% endblock %}
