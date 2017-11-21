@@ -22,7 +22,8 @@ def new_subject(request):
         subject_form = SubjectForm(request.POST)
 
         if subject_form.is_valid():
-            subject = subject_form.save()
+            subject = subject_form.save(False)
+            subject.created_at = timezone.now()
             subject.save()
 
         messages.success(request, 'You successfully created a new subject!')

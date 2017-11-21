@@ -1,27 +1,30 @@
 {% extends 'base.html' %}
 {% block content %}
 
-    <h1>What People Are Saying About Us</h1>
+    <h1 class="home-header">What People Are Saying About Us</h1>
 
 
         {% for post in posts %}
 
             <section class="testimonial_post">
-                <hr>
+
                 <div class="testimonial-header">
                     <div class="testimonial-title">
                         <h2>{{ post.title }}</h2>
                         <h3>{{ post.author }}</h3>
                         <p>{{ post.published_date }}</p>
                     </div>
-                    <button type="button" class="moreButton" data-toggle="collapse" data-target="#{{ post.id }}">
+                    <button type="button" class="myButton" data-toggle="collapse" data-target="#{{ post.id }}">
                         More<span class="caret"></span>
                     </button>
                 </div>
-                <div id="{{ post.id }}" class="collapse">
+
+                <div id="{{ post.id }}" class="content collapse">
                     <p>{{ post.content }}</p>
                 </div>
             </section>
+
+            <hr>
 
         {% endfor %}
 {% endblock %}

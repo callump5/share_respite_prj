@@ -1,13 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1>Meet Our Staff!</h1>
+
+    <h1 class="home-header">Meet Our Staff!</h1>
+
+    <h2 class="staff-header">Share Staff</h2>
 
     <div class="row">
-        <h2>Share Staff</h2>
         {% for staff in staffs %}
             {% if staff.staff_key.is_superuser %}
                 <div class="staff-details col-sm-3">
-                    <img src="/media/{{ staff.image }}" width="300" height="300">
+                    <img src="/media/{{ staff.image }}" width="250" height="300">
                     <div class="staff-desc">
                         <h3>{{ staff }}</h3>
                         <h4>{{ staff.role }}</h4>
@@ -17,8 +19,10 @@
         {% endfor %}
     </div>
 
+
+    <h2 class="staff-header">Play Workers</h2>
+
     <div class="row">
-        <h2>Play Workers</h2>
         {% for staff in staffs %}
             {% if not staff.staff_key.is_superuser %}
                 <div class="staff-details col-sm-3">

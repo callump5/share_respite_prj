@@ -11,15 +11,20 @@
         <p>{{ thread.description }}</p>
     </div>
 
-    <h2 class="comment-header">Comments</h2>
-    {% for comment in thread.comments.all %}
-        <div class="comment">
-            <h3>{{ comment }}</h3>
-            <p>{{ comment.comment }}</p>
-        </div>
-    {% endfor %}
 
-    <button class="btn"><a href="{% url 'new_comment' subject.id thread.id %}">Add a Comment</a></button>
+    <div class="comments">
+
+        <h2 class="comment-header">Comments</h2>
+
+        {% for comment in thread.comments.all %}
+            <div class="comment">
+                <h3>{{ comment }}</h3>
+                <p>{{ comment.comment }}</p>
+            </div>
+        {% endfor %}
+    </div>
+
+    <a class="btn" href="{% url 'new_comment' subject.id thread.id %}">Add a Comment</a>
 
 
 {% endblock %}

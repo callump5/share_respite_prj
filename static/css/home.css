@@ -1,3 +1,5 @@
+
+
 /* Nav */
     .navbar-default, .forum-table > table > thead {
     background: rgb(30,87,153); /* Old browsers */
@@ -15,6 +17,8 @@ nav .container {
 .navbar-brand {
     font-size: 1.5em;
 }
+
+
 
 
 /* Base Page */
@@ -41,9 +45,11 @@ footer {
 }
 
 
+
+
 /* Fonts */
 
-h1, h2, h3, h4, a, button {
+h1, h2, h3, h4, a, button, td {
     color: #207CCA;
     font-family: 'Montserrat', sans-serif;
 }
@@ -53,15 +59,20 @@ h1 {
 }
 h2 {
     font-size: 1.5em;
+    padding-left: 7.5px;
 }
 h3 {
     font-size: 1.3em;
+    padding-left: 7.5px;
 }
 p {
     font-size: 1.1em;
     text-align: justify;
     font-family: 'Montserrat', sans-serif;
+    padding-left: 15px;
 }
+
+
 
 
 /* Home Page */
@@ -93,6 +104,8 @@ p {
 }
 
 
+
+
 /* Forum */
     /* Forum Main */
 
@@ -107,6 +120,7 @@ p {
 
 .forum-table {
     width: 100%;
+    margin-left: 7.5px;
 }
 .forum-table > table > thead > tr > td{
     padding: 10px 0;
@@ -116,6 +130,7 @@ p {
 .forum-table > table > thead > tr > td:first-child,
 .forum-table > table > tbody >tr > td:first-child {
     padding-left: 20px;
+    color: #3f4141;
 }
 
 .forum-table > table > tbody> tr {
@@ -150,4 +165,77 @@ p {
 .comment {
     margin-bottom: 20px;
     margin-left: 10px;
+}
+
+
+/* Whats On Page */
+.WO-post h2 {
+    margin-bottom: 7.5px;
+}
+
+
+
+/* Staff Page */
+
+.staff-header {
+    margin-bottom: 10px;
+}
+
+.staff-details{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+
+
+/* Testimonial Page */
+
+.testimonial-title{
+    margin-bottom: 20px;
+}
+.testimonial-title h2 {
+    margin-bottom: 5px;
+}
+.testimonial-title p {
+    margin-top: 10px;
+}
+
+.myButton {
+    margin-left: 7.5px;
+}
+
+.testimonial_post .content {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Forms */
+label {
+    margin-bottom: 10px;
+}
+
+.btn {
+    margin-top: 10px;
+    margin-left: 15px;
+    background-color: #ededed;
+    padding: 8px 12px;
+}
+
+/* Profile */
+
+.fixed {
+    width: 350px
+}
+
+.no-marg{
+    margin: 0;
+}
+
+.align-right{
+    text-align: right;
+}
+
+.table-header {
+    margin-bottom: 10px;
 }

@@ -1,29 +1,31 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1>Welcome {{ user.get_full_name }}</h1>
+    <h1 class="home-header">Welcome {{ user.get_full_name }}</h1>
 
 
 <!-- Forum -->
     {% if user.is_staff %}
         <div class="col-md-12">
-            <h2>Forum Subjects</h2>
+            <h2 class="table-header">Forum Subjects</h2>
             <table class="table">
                 <tbody>
                     <tr>
-                        <th>Title</th>
+                        <th class="fixed">Title</th>
                         <th>Created At</th>
+                        <th></th>
                         <th></th>
                     </tr>
 
 
                     {% for post in forum_subjects %}
                         <tr>
-                            <td>{{ post }}</td>
+                            <td class="fixed">{{ post }}</td>
 
-                            <td>
-                                <time datetime="{{ post.created_at }}"></time>
-                            </td>
-                            <td class="table-right">
+
+                            <td>{{ post.created_at }}</td>
+
+                            <td></td>
+                            <td class="align-right">
                                 <a href="{% url 'subject' post.id %}"><i class="fa fa-eye" style="font-size:22px"></i></a>
                                 <a href="{% url 'edit_subject' post.id %}"><i class="fa fa-edit" style="font-size:22px"></i></a>
                                 <a href="{% url 'delete_subject' post.id %}"><i class="fa fa-trash-o" style="font-size:22px"></i></a>
@@ -38,11 +40,11 @@
 
 <!-- Testimonials -->
     <div class="col-md-12">
-    <h2>My Testimonials</h2>
+    <h2 class="table-header">My Testimonials</h2>
         <table class="table">
             <tbody>
                 <tr>
-                    <th>Title</th>
+                    <th class="fixed">Title</th>
                     <th>Created At</th>
                     <th></th>
                 </tr>
@@ -52,13 +54,12 @@
                     <tr>
                         {% if posts.user_id == user.id  %}
 
-                            <td>{{ posts.title }}</td>
+                            <td class="fixed">{{ posts.title }}</td>
 
-                            <td>
-                                <time datetime="{{ posts.published_date }}">
-                                {{ posts.published_date }}</time>
-                            </td>
-                            <td class="table-right">
+
+                            <td>{{ posts.published_date }}</td>
+
+                            <td class="align-right">
                                 <a href="{% url 'testimonials' %}"><i class="fa fa-eye" style="font-size:22px"></i></a>
                                 <a href="{% url 'edit_testimonial' posts.id %}"><i class="fa fa-edit" style="font-size:22px"></i></a>
                                 <a href="{% url 'delete_testimonial' posts.id %}"><i class="fa fa-trash-o" style="font-size:22px"></i></a>
@@ -74,11 +75,11 @@
 
 <!-- Threads -->
     <div class="col-md-12">
-    <h2>My Threads</h2>
+    <h2 class="table-header">My Threads</h2>
         <table class="table">
             <tbody>
                 <tr>
-                    <th>Title</th>
+                    <th class="fixed">Title</th>
                     <th>Created At</th>
                     <th></th>
                     <th>Comments</th>
@@ -90,15 +91,12 @@
                     <tr>
                         {% if posts.user_id == user.id  %}
 
-                            <td>{{ posts.thread }}</td>
+                            <td class="fixed">{{ posts.thread }}</td>
 
-                            <td>
-                                <time datetime="{{ posts.created_at }}">
-                                {{ posts.created_at }}</time>
-                            </td>
+                            <td>{{ posts.created_at }}</td>
                             <td>{{ posts.likes }}</td>
                             <td>{{ posts.comments.count }}</td>
-                            <td class="table-right">
+                            <td class="align-right">
                                 <a href="{% url 'view_thread' posts.subject_id posts.id %}"><i class="fa fa-eye" style="font-size:22px"></i></a>
                                 <a href="{% url 'edit_thread' posts.subject_id posts.id %}"><i class="fa fa-edit" style="font-size:22px"></i></a>
                                 <a href="{% url 'delete_thread' posts.subject_id posts.id %}"><i class="fa fa-trash-o" style="font-size:22px"></i></a>
