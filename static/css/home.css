@@ -156,8 +156,12 @@ p {
     /* Forum Comments */
 
 .thread {
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
+.thread h2 {
+    margin-bottom: 10px;
+}
+
 
 .comment-header {
     margin-bottom: 10px;
