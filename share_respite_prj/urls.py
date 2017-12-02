@@ -40,7 +40,11 @@ urlpatterns = [
 
     # Forum
 
-    url(r'^', include('forum.urls'))
+    url(r'^', include('forum.urls')),
+
+    # Donations
+
+    url(r'^', include('donations.urls'))
 
 
 ]

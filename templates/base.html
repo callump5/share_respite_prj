@@ -1,15 +1,27 @@
 {% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Share Respite</title>
+
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <link rel="stylesheet"  type='text/css' href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.6/cerulean/bootstrap.min.css">
     <link rel="stylesheet" href="{% static 'css/reset.css' %}">
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
+
+    <script src="/static/lib/js/jquery.min.js"></script>
+    <script src="/static/lib/js/bootstrap.min.js"></script>
+    {% block stripe_js %}{% endblock %}
+
 </head>
+
+
 <body>
 
 <!-- Nav -->
@@ -124,13 +136,12 @@
             <h2>Share Children's Respite</h2>
             <p>Contact Details:</p>
             <p>07124 578 154</p>
+
+            <a href="/donate">argr</a>
         </div>
     </footer>
 <!-- /Footer -->
 
-
-<script src="/static/lib/js/jquery.min.js"></script>
-<script src="/static/lib/js/bootstrap.min.js"></script>
 
 
 </body>

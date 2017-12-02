@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'aboutus',
     'django_forms_bootstrap',
     'font_awesome',
+    'donations',
 ]
 
 MIDDLEWARE = [
@@ -148,3 +149,7 @@ MESSAGE_TAGS = {
     messages.WARNING: 'alert-warning',
     messages.ERROR: 'alert-danger',
 }
+
+# Stripe environment variables
+STRIPE_PUBLISHABLE = os.getenv('STRIPE_PUBLISHABLE', 'pk_test_L7U50ZTVJ1FmVtrtUu5vZL9W')
+STRIPE_SECRET = os.getenv('STRIPE_SECRET', 'sk_test_HN7jhITgfB0ibcCMKD13phHp')
