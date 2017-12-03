@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 
 from django.shortcuts import render
-
+from django.db.models import Sum, Count
 from django.contrib import messages
 from .forms import DonationForm
 from .models import Donation
@@ -23,20 +23,25 @@ def donate(request):
     if request.method == 'POST':
         form = DonationForm(request.POST)
         if form.is_valid():
+
+            charge = int(float(form.cleaned_data['amount']) * 100)
+
             try:
                 customer = stripe.Charge.create(
-                    amount=form.cleaned_data['amount'],
+                    amount= charge,
                     currency="GBP",
                     card=form.cleaned_data['stripe_id'],
                 )
 
+                chargeData = float(charge) / 100
+
                 if customer.paid:
                     donation_form = form.save(False)
                     donation_form.user = request.user
+                    donation_form.amount = chargeData
                     donation_form.save()
 
-                    amount = donation_form.amount / 100
-                    messages.success(request, "You donated £%s" % amount)
+                    messages.success(request, "Thank you for donating £%s!" % chargeData)
                     return redirect(reverse('profile'))
                 else:
                     messages.error(request, "We were unable to take a payment with that card!")
@@ -50,12 +55,13 @@ def donate(request):
     args.update(csrf(request))
     return render(request, 'donations/donation_form.html', args)
 
-def donations(request):
-    return render(request, 'donations/donations.html')
+def donation_graphs(request):
 
-def get_donations(request):
+    donations = Donation.objects.all()
 
-    data = Donation.objects.all()
+    total = 0
+    for donation in donations:
+        total += donation.amount
 
-    return JsonResponse(list(data))
+    return render(request, 'donations/donations.html', {'total': total})
 

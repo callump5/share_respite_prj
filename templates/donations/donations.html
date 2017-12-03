@@ -7,7 +7,6 @@
     <script type="text/javascript" src="{% static 'lib/js/d3.js' %}"></script>
     <script type="text/javascript" src="{% static 'lib/js/dc.js' %}"></script>
     <script type="text/javascript" src="{% static 'lib/js/queue.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/graph.js' %}"></script>
 
 
 
@@ -15,5 +14,6 @@
 
 {% block content %}
     <h1 class="home-header">Donations</h1>
-    <p></p>
+
+    {{ total }}
 {% endblock %}
