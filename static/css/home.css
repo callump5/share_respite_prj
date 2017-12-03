@@ -37,6 +37,9 @@ footer {
     bottom: 0;
     width: 100%;
 }
+footer a {
+    padding-left: 15px;
+}
 
 .alert {
 

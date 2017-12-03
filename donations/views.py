@@ -4,18 +4,21 @@ from __future__ import unicode_literals
 from django.shortcuts import render
 
 from django.contrib import messages
-from donations.forms import DonationForm
+from .forms import DonationForm
+from .models import Donation
 from django.core.urlresolvers import reverse
 from django.shortcuts import render, redirect
 from django.template.context_processors import csrf
 from django.conf import settings
+from django.contrib.auth.decorators import login_required
 import stripe
+from django.http import JsonResponse
 
 stripe.api_key = settings.STRIPE_SECRET
 
 # Create your views here.
 
-
+@login_required(login_url='/login/')
 def donate(request):
     if request.method == 'POST':
         form = DonationForm(request.POST)
@@ -46,4 +49,13 @@ def donate(request):
     args = {'form': form, 'publishable': settings.STRIPE_PUBLISHABLE}
     args.update(csrf(request))
     return render(request, 'donations/donation_form.html', args)
+
+def donations(request):
+    return render(request, 'donations/donations.html')
+
+def get_donations(request):
+
+    data = Donation.objects.all()
+
+    return JsonResponse(list(data))
 

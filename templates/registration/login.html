@@ -6,5 +6,6 @@
         {% csrf_token %}
         {{ form | as_bootstrap }}
         <button class="btn" type="submit">Log In</button>
+        <a  class="btn" href="/register/">Register</a>
     </form>
 {% endblock %}
