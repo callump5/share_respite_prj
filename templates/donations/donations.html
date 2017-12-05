@@ -7,6 +7,7 @@
     <script type="text/javascript" src="{% static 'lib/js/d3.js' %}"></script>
     <script type="text/javascript" src="{% static 'lib/js/dc.js' %}"></script>
     <script type="text/javascript" src="{% static 'lib/js/queue.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/graph.js' %}"></script>
 
 
 
@@ -15,5 +16,47 @@
 {% block content %}
     <h1 class="home-header">Donations</h1>
 
-    {{ total }}
+    <!-- Date Graph -->
+    <div class="col-sm-8">
+        <div class="chart-wrapper">
+            <div class="chart-title">
+                <h2>Donations</h2>
+            </div>
+            <div class="chart-stage">
+                <div id="date-graph"></div>
+            </div>
+        </div>
+    </div>
+    <!-- / Date Graph -->
+
+    <!-- Data Table -->
+    <div class="col-sm-4">
+        <div class="chart-wrapper">
+            <div class="chart-title">
+                <h2>Donation Data</h2>
+            </div>
+            <div class="chart-stage">
+                <div id="data-table"></div>
+            </div>
+        </div>
+    </div>
+    <!-- / Data Table-->
+
+<style>
+
+h2{
+    padding: 0;
+    padding-bottom: 10px;
+}
+th,td {
+    padding-right: 20px;
+}
+
+td {
+    font-size: 0.7em;
+}
+</style>
+
+
+
 {% endblock %}

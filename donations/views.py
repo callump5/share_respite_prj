@@ -2,7 +2,9 @@
 from __future__ import unicode_literals
 
 from django.shortcuts import render
-from django.db.models import Sum, Count
+import json
+from django.core import serializers
+from django.http import HttpResponse
 from django.contrib import messages
 from .forms import DonationForm
 from .models import Donation
@@ -63,5 +65,8 @@ def donation_graphs(request):
     for donation in donations:
         total += donation.amount
 
-    return render(request, 'donations/donations.html', {'total': total})
+    return render(request, 'donations/donations.html', {'donations': donations})
 
+def donation_data(request):
+    data = serializers.serialize('json', Donation.objects.all(), fields=('user', 'amount', 'created_at'))
+    return HttpResponse(data, content_type='text')
