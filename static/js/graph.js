@@ -22,6 +22,8 @@ function makeGraphs(error, data) {
     var ndx = crossfilter(data);
 
     // Crossfilter Dimensions
+    var all = ndx.groupAll();
+
     var amountDim = ndx.dimension(function(d) {return d.amount;});
 
     var pkDim = ndx.dimension(function (d) {return d.pk});
@@ -39,17 +41,29 @@ function makeGraphs(error, data) {
         .range(2000);
 
 
-      amount = function (p) { return d.amount };
+
+    var amount = ndx.dimension(function(d) { return d.amount })
+    var sumAllAmount = amount.groupAll().reduceSum(function(d) {return d.amount;})
 
 
 
     var chart = dc.barChart("#date-graph");
-
     var dataTable = dc.dataTable("#data-table");
+    var dataCount = dc.dataCount("#data-count");
+    var numberDisplay = dc.numberDisplay("#total");
+
+
+    dataCount
+        .dimension(donationGroup)
+        .group(all);
+
+    numberDisplay
+        .valueAccessor(function(d) { return d; } )
+        .group(sumAllAmount);
 
     chart
         .width(768)
-        .height(480)
+        .height(400)
         .x(userScale)
         .yAxisLabel('Donation (GBP)', 25)
         .xAxisLabel('Per Donation')

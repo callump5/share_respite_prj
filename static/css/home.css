@@ -31,7 +31,7 @@ nav .container {
 }
 
 footer {
-    padding: 35px;
+    padding: 15px;
     background-color: #ededed;
     position: fixed;
     bottom: 0;
@@ -62,17 +62,14 @@ h1 {
 }
 h2 {
     font-size: 1.5em;
-    padding-left: 7.5px;
 }
 h3 {
     font-size: 1.3em;
-    padding-left: 7.5px;
 }
 p {
     font-size: 1.1em;
     text-align: justify;
     font-family: 'Montserrat', sans-serif;
-    padding-left: 15px;
 }
 
 

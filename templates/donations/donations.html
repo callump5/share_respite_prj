@@ -15,6 +15,11 @@
 
 {% block content %}
     <h1 class="home-header">Donations</h1>
+        <div>
+            <h3 id="data-count"><strong class="filter-count"></strong> selected out of <strong class="total-count"></strong> records</h3>
+            <p id='total'>Total Donations: £</p>
+        </div>
+
 
     <!-- Date Graph -->
     <div class="col-sm-8">
@@ -45,15 +50,18 @@
 <style>
 
 h2{
-    padding: 0;
     padding-bottom: 10px;
+}
+
+p#total{
+    padding-bottom: 5px;
 }
 th,td {
     padding-right: 20px;
 }
 
 td {
-    font-size: 0.7em;
+    font-size: 0.9em;
 }
 </style>
 
