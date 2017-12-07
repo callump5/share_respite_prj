@@ -1,16 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
-
-    <h1 class="home-header">Whats On</h1>
+    <div class="home-header">
+        <h1>Whats On</h1>
+        <p>Here are some of the activities we have to offer at Share!</p>
+    </div>
 
     {% for activity in activities %}
         <div class="WO-post">
             <h2><a href="">{{ activity }}</a></h2>
             <p>{{ activity.description|linebreaks }}</p>
         </div>
-
-        <hr>
-
     {% endfor %}
 {% endblock %}
 
