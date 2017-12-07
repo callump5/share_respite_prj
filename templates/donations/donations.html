@@ -3,6 +3,8 @@
 {% load staticfiles %}
 
 {% block stripe_js %}
+
+
     <script type="text/javascript" src="{% static 'lib/js/crossfilter.js' %}"></script>
     <script type="text/javascript" src="{% static 'lib/js/d3.js' %}"></script>
     <script type="text/javascript" src="{% static 'lib/js/dc.js' %}"></script>
@@ -20,31 +22,22 @@
             <p id='total'>Total Donations: £</p>
         </div>
 
+    <div class="row">
+        <!-- Date Graph -->
+        <div class="col-sm-8" id="date-graph"></div>
+        <!-- / Date Graph -->
 
-    <!-- Date Graph -->
-    <div class="col-sm-8">
-        <div class="chart-wrapper">
-            <div class="chart-title">
-                <h2>Donations</h2>
-            </div>
-            <div class="chart-stage">
-                <div id="date-graph"></div>
+        <!-- Data Table -->
+        <div class="col-sm-4">
+            <div class="chart-wrapper">
+                <div class="chart-title">
+                    <h2>Donation Data</h2>
+                </div>
+                <div class="chart-stage">
+                    <div id="data-table"></div>
+                </div>
             </div>
         </div>
+        <!-- / Data Table-->
     </div>
-    <!-- / Date Graph -->
-
-    <!-- Data Table -->
-    <div class="col-sm-4">
-        <div class="chart-wrapper">
-            <div class="chart-title">
-                <h2>Donation Data</h2>
-            </div>
-            <div class="chart-stage">
-                <div id="data-table"></div>
-            </div>
-        </div>
-    </div>
-    <!-- / Data Table-->
-
 {% endblock %}

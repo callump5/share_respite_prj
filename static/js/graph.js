@@ -5,6 +5,7 @@ queue()
 
 function makeGraphs(error, data) {
 
+
     data.forEach(function (d) {
         d.created_at = d['fields']['created_at'];
         d.amount = +d['fields']['amount'];
@@ -47,6 +48,10 @@ function makeGraphs(error, data) {
     var numberDisplay = dc.numberDisplay("#total");
 
 
+    var width = document.getElementById('date-graph').offsetWidth;
+
+
+
     dataCount
         .dimension(donationGroup)
         .group(all);
@@ -56,7 +61,7 @@ function makeGraphs(error, data) {
         .group(sumAllAmount);
 
     chart
-        .width(768)
+        .width(width)
         .height(400)
         .x(userScale)
         .yAxisLabel('Donation (GBP)', 25)
@@ -76,13 +81,26 @@ function makeGraphs(error, data) {
                 format: function (d) { return d.created_at;}
             },
             {
-                label: "Amount",
+                label: "Amount (£)",
                 format: function (d) { return d.amount;}
             }
         ]);
 
 
     dc.renderAll();
+
+    window.onresize = function(event) {
+
+        var newWidth = document.getElementById('box-test').offsetWidth;
+
+        chart.width(newWidth)
+            .transitionDuration(0);
+            pie.transitionDuration(0);
+            dc.renderAll();
+            chart.transitionDuration(750);
+    };
+
 }
 
 makeGraphs();
+
