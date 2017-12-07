@@ -20,7 +20,6 @@ stripe.api_key = settings.STRIPE_SECRET
 
 # Create your views here.
 
-@login_required(login_url='/login/')
 def donate(request):
     if request.method == 'POST':
         form = DonationForm(request.POST)
@@ -57,6 +56,8 @@ def donate(request):
     args.update(csrf(request))
     return render(request, 'donations/donation_form.html', args)
 
+
+@login_required(login_url='/login/')
 def donation_graphs(request):
 
     donations = Donation.objects.all()

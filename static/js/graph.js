@@ -5,18 +5,12 @@ queue()
 
 function makeGraphs(error, data) {
 
-
-    var formatYear = d3.time.format("%Y");
-    var formatDate = d3.time.format("%m/%d/%Y");
-
     data.forEach(function (d) {
         d.created_at = d['fields']['created_at'];
         d.amount = +d['fields']['amount'];
         d.user = +d['fields']['user'];
         d.pk = +d['pk'];
     });
-
-    console.log(data);
 
     // Crossfilter Instance
     var ndx = crossfilter(data);

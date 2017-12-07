@@ -1,7 +1,7 @@
 
 
 /* Nav */
-    .navbar-default, .forum-table > table > thead {
+    .navbar-default, .forum-table > table > thead    {
     background: rgb(30,87,153); /* Old browsers */
     background: -moz-linear-gradient(-45deg, rgba(30,87,153,1) 0%, rgba(41,137,216,1) 50%, rgba(32,124,202,1) 51%, rgba(125,185,232,1) 100%); /* FF3.6-15 */
     background: -webkit-linear-gradient(-45deg, rgba(30,87,153,1) 0%,rgba(41,137,216,1) 50%,rgba(32,124,202,1) 51%,rgba(125,185,232,1) 100%); /* Chrome10-25,Safari5.1-6 */
@@ -52,7 +52,7 @@ footer a {
 
 /* Fonts */
 
-h1, h2, h3, h4, a, button, th, td, text {
+h1, h2, h3, h4, a, button, th, td, text{
     color: #207CCA;
     font-family: 'Montserrat', sans-serif;
 }
@@ -242,4 +242,22 @@ label {
 
 .table-header {
     margin-bottom: 10px;
+}
+
+/* Contact */
+
+#contact{
+    margin-bottom: 10px;
+    text-align: right;
+}
+#contact ul {
+    list-style: none;
+}
+#contact ul li p{
+    padding-bottom: 5px;
+    float: right;
+}
+
+iframe {
+    width: 100%;
 }

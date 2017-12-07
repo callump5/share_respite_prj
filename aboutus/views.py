@@ -13,3 +13,6 @@ def staff_list(request):
 def whats_on(request):
     activities = WhatsOn.objects.all()
     return render(request, "aboutus/whats-on.html", {'activities': activities})
+
+def contact(request):
+    return render(request, 'aboutus/contact_us.html')
