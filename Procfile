@@ -1,0 +1,1 @@
+web: gunicorn share_respite_prj.wsgi.application

@@ -15,4 +15,4 @@ DATABASES = {
 
 # Stripe environment variables
 STRIPE_PUBLISHABLE = os.getenv('STRIPE_PUBLISHABLE', 'pk_test_L7U50ZTVJ1FmVtrtUu5vZL9W')
-STRIPE_SECRET = os.geten
+STRIPE_SECRET = os.getenv('STRIPE_SECRET', 'sk_test_HN7jhITgfB0ibcCMKD13phHp')
