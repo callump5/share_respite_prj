@@ -1,4 +1,3 @@
--r settincertifi==2017.11.5
 chardet==3.0.4
 Django==1.11.5
 django-bootstrap-forms==0.1
