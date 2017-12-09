@@ -291,3 +291,8 @@ iframe {
 #total{
     margin-bottom: 10px;
 }
+
+#data-table{
+    height: 350px;
+    overflow-y: scroll;
+}
