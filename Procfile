@@ -1,1 +1,1 @@
-web: gunicorn share_respite_prj.wsgi.application
+web: share_respite_prj.wsgi.application --log-file -
