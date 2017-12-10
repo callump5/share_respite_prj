@@ -1,1 +1,2 @@
 -r requirements/staging.txt
+gunicorn==19.4
