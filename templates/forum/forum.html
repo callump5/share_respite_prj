@@ -23,7 +23,7 @@
 
                     {% for subject in subjects %}
                         <tr>
-                            <td><i class="glyphicon glyphicon-file" aria-hidden="true"></i></td>
+                            <td><i class="glyphicon glyphicon-file" style="font-size:22px" aria-hidden="true"></i></td>
                             <td><h2><a href="{% url 'subject' subject.id %}">{{ subject }}</a></h2></td>
                             <td class="counters">{{ subject.threads.count }}</td>
                             <td class="counters">{{ subject|get_total_subject_comments}}</td>
