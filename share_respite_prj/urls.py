@@ -26,7 +26,7 @@ urlpatterns = [
 
     # Images
     url(r'^media/(?P<path>.*)$', serve, {'document_root': MEDIA_ROOT}),
-    url(r'^static/(?P<path>.*)$', views, {'document_root': STATIC_ROOT}),
+    url(r'^static/(?P<path>.*)$', views.serve, {'document_root': STATIC_ROOT}),
 
     # Home Page
     url(r'^$', home_views.get_index, name='home'),
