@@ -9,7 +9,9 @@ SECRET_KEY = '8e_*3b-a4d$(pwl)bzzfzd+1)ar^k45sx)ro7*x@6nctwyd*nn'
 
 
 ALLOWED_HOSTS = [
-    'share-respite.herokuapp.com'
+    'share-respite.herokuapp.com',
+    '127.0.0.1',
+    '291e2d8f.ngrok.io'
 ]
 
 
@@ -96,10 +98,12 @@ USE_TZ = True
 
 
 
-STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"))
 STATIC_URL = '/static/'
-STATIC_ROOT = "https://share-respite.herokuapp.com/static"
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static"),
+)
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
