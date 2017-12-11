@@ -60,9 +60,9 @@
                             <td>{{ posts.published_date }}</td>
 
                             <td class="align-right">
-                                <a href="{% url 'testimonials' %}"><i class="fa fa-eye" style="font-size:22px"></i></a>
-                                <a href="{% url 'edit_testimonial' posts.id %}"><i class="fa fa-edit" style="font-size:22px"></i></a>
-                                <a href="{% url 'delete_testimonial' posts.id %}"><i class="fa fa-trash-o" style="font-size:22px"></i></a>
+                                <a href="{% url 'testimonials' %}"><i class="glyphicon glyphicon-search" style="font-size:22px"></i></a>
+                                <a href="{% url 'edit_testimonial' posts.id %}"><i class="glyphicon glyphicon-cog" style="font-size:22px"></i></a>
+                                <a href="{% url 'delete_testimonial' posts.id %}"><i class="glyphicon glyphicon-trash" style="font-size:22px"></i></a>
                             </td>
                         {% endif %}
                     </tr>
@@ -97,9 +97,9 @@
                             <td>{{ posts.likes }}</td>
                             <td>{{ posts.comments.count }}</td>
                             <td class="align-right">
-                                <a href="{% url 'view_thread' posts.subject_id posts.id %}"><i class="fa fa-eye" style="font-size:22px"></i></a>
-                                <a href="{% url 'edit_thread' posts.subject_id posts.id %}"><i class="fa fa-edit" style="font-size:22px"></i></a>
-                                <a href="{% url 'delete_thread' posts.subject_id posts.id %}"><i class="fa fa-trash-o" style="font-size:22px"></i></a>
+                                <a href="{% url 'view_thread' posts.subject_id posts.id %}"><i class="glyphicon glyphicon-search" style="font-size:22px"></i></a>
+                                <a href="{% url 'edit_thread' posts.subject_id posts.id %}"><i class="glyphicon glyphicon-cog" style="font-size:22px"></i></a>
+                                <a href="{% url 'delete_thread' posts.subject_id posts.id %}"><i class="glyphicon glyphicon-trash" style="font-size:22px"></i></a>
                             </td>
                         {% endif %}
                     </tr>
