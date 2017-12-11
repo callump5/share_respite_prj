@@ -93,15 +93,13 @@ USE_L10N = True
 USE_TZ = True
 
 STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
 
 STATIC_ROOT = 'staticfiles'
+MEDIA_ROOT = 'media'
 
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "static"),
-)
-
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'
+STATICFILES_DIRS = os.path.join(BASE_DIR, "static")
+MEDIA_DIR = os.path.join(BASE_DIR, 'media')
 
 # Message Tags
 
