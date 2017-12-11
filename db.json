@@ -671,24 +671,6 @@
 },
 {
     "model": "admin.logentry",
-    "pk": 14,
-    "fields": {
-        "action_time": "2017-10-31T14:53:34.414Z",
-        "user": [
-            "Callum"
-        ],
-        "content_type": [
-            "accounts",
-            "staffdetails"
-        ],
-        "object_id": "1",
-        "object_repr": "StaffDetails object",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
     "pk": 15,
     "fields": {
         "action_time": "2017-10-31T15:34:19.470Z",
