@@ -16,4 +16,4 @@ six
 stripe
 urllib3
 gunicorn
-whitenoise
+whitenoise==3.2
