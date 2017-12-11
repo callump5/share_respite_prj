@@ -20,7 +20,7 @@
                 <tbody>
                     {% for thread in subject.threads.all %}
                         <tr>
-                            <td><i class="fa fa-file" aria-hidden="true"></i></td>
+                            <td><i class="glyphicon glyphicon-file" aria-hidden="true"></i></td>
                             <td><h2><a href="{% url 'view_thread' subject.id thread.id %}">{{ thread }}</a></h2></td>
                             <td class="counters">{{ thread.views }}</td>
                             <td class="counters">{{ thread.comments.count }}</td>
