@@ -4,7 +4,7 @@ from .models import *
 class SubjectForm(forms.ModelForm):
     class Meta:
         model = Subject
-        fields = ['subject', 'description']
+        fields = ['subject', ]
 class ThreadForm(forms.ModelForm):
     class Meta:
         model = Thread
