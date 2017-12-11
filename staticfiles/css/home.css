@@ -1,0 +1,298 @@
+
+
+/* Nav */
+    .navbar-default, .forum-table > table > thead    {
+    background: rgb(30,87,153); /* Old browsers */
+    background: -moz-linear-gradient(-45deg, rgba(30,87,153,1) 0%, rgba(41,137,216,1) 50%, rgba(32,124,202,1) 51%, rgba(125,185,232,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, rgba(30,87,153,1) 0%,rgba(41,137,216,1) 50%,rgba(32,124,202,1) 51%,rgba(125,185,232,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, rgba(30,87,153,1) 0%,rgba(41,137,216,1) 50%,rgba(32,124,202,1) 51%,rgba(125,185,232,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+nav .container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.navbar-brand {
+    font-size: 1.5em;
+}
+
+
+
+
+/* Base Page */
+
+#main-view {
+    width: 85%;
+    margin-top: 50px;
+    padding: 0 40px;
+    padding-bottom: 160px;
+}
+
+footer {
+    padding: 15px;
+    background-color: #ededed;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.alert {
+
+    margin-top: 25px;
+
+}
+
+
+
+
+/* Fonts */
+
+h1, h2, h3, h4, a, button, th, text{
+    color: #207CCA;
+    font-family: 'Montserrat', sans-serif;
+}
+td{
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+    font-size: 2.2em;
+}
+h2 {
+    font-size: 1.5em;
+}
+h3 {
+    font-size: 1.3em;
+}
+p {
+    font-size: 1.1em;
+    text-align: justify;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+
+
+/* Home Page */
+
+
+.home-header {
+    margin: 15px 0;
+}
+.home-header > p {
+    margin-top: 5px;
+    padding-left: 10px;
+}
+
+.home-image {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+.home-image img {
+    width: 90%;
+}
+
+.home-info h2, h3 {
+    margin-bottom: 5px;
+}
+
+.home-hr {
+    margin: 20px 0 15px 0;
+}
+
+
+
+
+/* Forum */
+    /* Forum Main */
+
+.forum-header, .thread-header {
+    margin: 20px 0;
+}
+
+.forum-table-wrap {
+    display: flex;
+    justify-content: center;
+}
+
+.forum-table {
+    width: 100%;
+}
+.forum-table > table > thead > tr > td{
+    padding: 10px 0;
+    vertical-align: middle;
+    color: white;
+}
+.forum-table > table > thead > tr > td:first-child,
+.forum-table > table > tbody >tr > td:first-child {
+    padding-left: 20px;
+    color: #3f4141;
+}
+
+.forum-table > table > tbody> tr {
+    border-bottom: 1px solid grey;
+}
+.forum-table > table > tbody >tr > td {
+    vertical-align: middle;
+    padding: 10px 0;
+}
+
+.counters {
+    text-align: center;
+}
+
+/* Forum */
+    /* Forum Threads */
+
+.thread-table-wrap button {
+    margin-top: 25px;
+}
+
+/* Forum */
+    /* Forum Comments */
+
+.thread {
+    margin-bottom: 30px;
+}
+.thread h2 {
+    margin-bottom: 10px;
+}
+
+
+.comment-header {
+    margin-bottom: 10px;
+}
+.comment {
+    margin-bottom: 20px;
+}
+
+
+/* Whats On Page */
+.WO-post h2 {
+    margin-bottom: 7.5px;
+}
+.WO-post {
+    border-bottom: 1px solid grey;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+.WO-post:last-child {
+    border: none;
+}
+
+
+
+/* Staff Page */
+
+.staff-header {
+    margin-bottom: 10px;
+}
+
+.staff-details{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+
+
+/* Testimonial Page */
+
+.testimonial-title{
+    margin-bottom: 20px;
+}
+.testimonial-title h2 {
+    margin-bottom: 5px;
+}
+.testimonial-title p {
+    margin-top: 10px;
+}
+
+
+.testimonial_post .content {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Forms */
+label {
+    margin-bottom: 10px;
+}
+
+.btn {
+    background-color: #ededed;
+    padding: 8px 12px;
+    margin-top: 10px;
+}
+
+/* Profile */
+
+.fixed {
+    width: 350px
+}
+
+.no-marg{
+    margin: 0;
+}
+
+.align-right{
+    text-align: right;
+}
+
+.table-header {
+    margin-bottom: 10px;
+}
+
+/* Contact */
+
+#contact{
+    margin-bottom: 10px;
+}
+#contact > p {
+    padding-bottom: 10px;
+    margin-top: 5px;
+    padding-left: 5px;
+}
+#contact ul {
+    list-style: none;
+    margin-left: 30px;
+    margin-top: 50px;
+}
+#contact ul li p{
+    padding-bottom: 5px;
+}
+#contact hr {
+    margin: 10px 0;
+}
+iframe {
+    width: 100%;
+}
+
+/* Donations */
+
+.chart-title h2 {
+    padding-bottom: 10px;
+}
+
+.dc-table-label {
+    padding-top: 5px;
+    border-top: 1px solid grey;
+}
+.dc-table-row {
+    margin-bottom: 10px;
+}
+.dc-table-column._1{
+    float: right;
+}
+
+#total{
+    margin-bottom: 10px;
+}
+
+#data-table{
+    height: 350px;
+    overflow-y: scroll;
+}
