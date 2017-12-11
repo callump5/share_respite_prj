@@ -18,8 +18,8 @@
 
         {% for comment in thread.comments.all %}
             <div class="comment">
-                <h3>{{ comment }}</h3>
                 <p>{{ comment.comment }}</p>
+            <p style=" font-size:0.8em ">{{ comment }}</p>
             </div>
         {% endfor %}
     </div>
