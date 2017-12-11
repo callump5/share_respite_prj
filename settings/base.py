@@ -8,7 +8,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '8e_*3b-a4d$(pwl)bzzfzd+1)ar^k45sx)ro7*x@6nctwyd*nn'
 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'share-respite.herokuapp.com'
+]
 
 
 INSTALLED_APPS = [

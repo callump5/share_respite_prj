@@ -1,1 +1,2 @@
-web: gunicorn share_respite_prj.wsgi:application
+web: gunicorn share_respite_prj.wsgi --setting=settings.staging
+worker: python worker.py
