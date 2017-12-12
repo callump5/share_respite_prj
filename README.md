@@ -8,15 +8,15 @@ that others may relate to.
 
 ## Features
 ### Existing Features
-
-### Features Left to Implement
-- Forum
-- Testimonials
-- Donations
-- Staff Slider
-- Forum Polls
-- User Auth
+- Forum: Can be accessed by anyone from the nav bar. A subject is created by a staff member. Threads and comments a user must be logged in.
+- Testimonials: Can be acceessed by anyone form the nav. Also people can create a testimonial after logging in.
+- Donations: 
+- Staff Gallery
 - Map
+- User Auth
+### Future Features
+- Forum Polls
+
 ## Tech Used
 
 ### Some the tech used includes:
