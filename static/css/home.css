@@ -37,6 +37,15 @@ footer {
     bottom: 0;
     width: 100%;
 }
+
+#footerContent{
+    width: 50%;
+}
+
+#footerBtn{
+    float: right;
+}
+
 .alert {
 
     margin-top: 25px;
