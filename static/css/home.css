@@ -43,7 +43,9 @@ footer {
 }
 
 #footerBtn{
-    float: right;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
 }
 
 .alert {
