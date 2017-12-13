@@ -37,17 +37,6 @@ footer {
     bottom: 0;
     width: 100%;
 }
-
-#footerContent{
-    width: 50%;
-}
-
-#footerBtn{
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
-}
-
 .alert {
 
     margin-top: 25px;
