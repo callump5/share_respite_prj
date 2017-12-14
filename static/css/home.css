@@ -296,12 +296,8 @@ iframe {
     overflow-y: scroll;
 }
 
-/* Portrait and Landscape */
 @media screen and (max-width: 580px) {
-    #main-view {
-        width: 0;
+        #main-view {
+            width: 100%;
+        }
     }
-    .container{
-        width: 95%;
-    }
-}
