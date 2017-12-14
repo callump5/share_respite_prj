@@ -295,9 +295,3 @@ iframe {
     height: 350px;
     overflow-y: scroll;
 }
-
-@media screen and (max-width: 500px) {
-    #main-view {
-        width: 100%;
-    }
-}
