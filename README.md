@@ -15,6 +15,10 @@ that others may relate to.
 As this is mainly a user driven site, if you was to not make an account you wouldnt be able to see/use all the features
 available.
 
+As this is my course work and i want all features to be avaiable i made a user with superuser access:
+username: CodeInstitute
+password: coursework
+
 #### Non-User
 - Can access **Forum** and view **Threads**
 - Can access **About Us** pages
