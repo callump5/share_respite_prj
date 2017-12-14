@@ -54,7 +54,7 @@ available.
 	- We use **Bootstrap** to give our project a simple, responsive layout
 - [Dc](https://dc-js.github.io/dc.js/)
     - Used for dimensional charting 
--[D3](https://d3js.org/)
+- [D3](https://d3js.org/)
     - Used for manipulating documents based on data
 - [Crossfilter](http://square.github.io/crossfilter/)
     - Used for exploring large multivariate datasets in the browser.
