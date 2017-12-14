@@ -297,19 +297,18 @@ iframe {
 }
 
 /* Portrait and Landscape */
-@media only screen
-  and (min-device-width: 320px)
-  and (max-device-width: 480px)
-  and (-webkit-min-device-pixel-ratio: 2) {
+
+@media (max-width:320px)  {
 
     #main-view{
         width: 0;
+        padding-bottom: 170px;
     }
 
     .container{
         width: 90%;
     }
-    
+
 
 
 }
