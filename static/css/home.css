@@ -298,7 +298,7 @@ iframe {
 
 /* Portrait and Landscape */
 
-@media (max-width:320px)  {
+@media (max-width:450px)  {
 
     #main-view{
         width: 0;
