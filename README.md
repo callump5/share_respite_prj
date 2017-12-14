@@ -42,6 +42,7 @@ available.
 - Testimonials
 - Donations
 - Staff Gallery
+	- uploading images on local and hosted site works. Apart from when heroku puts the app into sleep mode when the site is inactive; then the images are deleted as they are not stored (I believe this is a problem with my current subscription option being the free one)
 - Map
 
 ## Tech Used
