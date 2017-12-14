@@ -1,8 +1,9 @@
 # Share Respite Website
 
-Hosted Link: https://share-respite.herokuapp.com/
-Github Link: https://github.com/callump5/share_respite_prj
-Share's Current Site Link: http://sharerespite.co.uk/
+- Hosted Link: https://share-respite.herokuapp.com/
+- Github Link: https://github.com/callump5/share_respite_prj
+- Share's Current Site Link: http://sharerespite.co.uk/
+
 
 ## Overview
 ### What is this app for?
