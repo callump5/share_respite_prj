@@ -297,8 +297,9 @@ iframe {
 }
 
 /* Portrait and Landscape */
-
-@media screen and (max-width: 500px) {
+@media only screen
+    and (min-device-width : 320px)
+    and (max-device-width : 500px) {
 
     #main-view{
         width: 0;
