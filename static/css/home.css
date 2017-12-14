@@ -298,7 +298,8 @@ iframe {
 
 /* Portrait and Landscape */
 
-@media screen and (min-width: 480px) {
+@media screen and (max-width: 500px) {
+
     #main-view{
         width: 0;
         padding-bottom: 170px;
