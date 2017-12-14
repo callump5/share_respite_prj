@@ -297,15 +297,11 @@ iframe {
 }
 
 /* Portrait and Landscape */
-@media only screen
-    and (min-device-width : 320px)
-    and (max-device-width : 500px) {
-
-    #main-view{
+@media screen and (max-width: 580px) {
+    #main-view {
         width: 0;
     }
-
     .container{
-        width: 90%;
+        width: 95%;
     }
 }
