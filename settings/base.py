@@ -9,6 +9,8 @@ SECRET_KEY = '8e_*3b-a4d$(pwl)bzzfzd+1)ar^k45sx)ro7*x@6nctwyd*nn'
 
 
 ALLOWED_HOSTS = [
+    "127.0.0.1",
+    "localhost",
     'share-respite.herokuapp.com',
 ]
 
