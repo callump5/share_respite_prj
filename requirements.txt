@@ -1,6 +1,6 @@
 certifi==2017.11.5
 chardet==3.0.4
-Django==1.11.5
+Django==1.11.29
 django-bootstrap-forms==0.1
 django-disqus==0.5
 django-font-awesome==4.6.1
